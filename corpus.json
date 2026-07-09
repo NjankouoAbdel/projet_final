@@ -1,0 +1,80 @@
+[
+  {
+    "id": "L3121-27",
+    "titre": "Durée légale du travail",
+    "texte": "La durée légale de travail effectif des salariés à temps complet est fixée à trente-cinq heures par semaine.",
+    "section": "Durée du travail et heures supplémentaires"
+  },
+  {
+    "id": "L3121-28",
+    "titre": "Définition de l'heure supplémentaire",
+    "texte": "Toute heure accomplie au-delà de la durée légale hebdomadaire ou de la durée considérée comme équivalente est une heure supplémentaire qui ouvre droit à une majoration salariale ou, le cas échéant, à un repos compensateur équivalent.",
+    "section": "Durée du travail et heures supplémentaires"
+  },
+  {
+    "id": "L3121-33",
+    "titre": "Majoration des heures supplémentaires",
+    "texte": "A défaut d'accord, les heures supplémentaires accomplies au-delà de la durée légale hebdomadaire fixée à l'article L. 3121-27 ou de la durée considérée comme équivalente donnent lieu à une majoration de salaire de 25 % pour chacune des huit premières heures supplémentaires. Les heures suivantes donnent lieu à une majoration de 50 %.",
+    "section": "Durée du travail et heures supplémentaires"
+  },
+  {
+    "id": "L3121-18",
+    "titre": "Durée quotidienne maximale de travail",
+    "texte": "La durée quotidienne de travail effectif par salarié ne peut excéder dix heures, sauf : 1° En cas de dérogation accordée par l'inspecteur du travail dans des conditions déterminées par décret ; 2° En cas d'urgence, dans des conditions déterminées par décret ; 3° Dans les cas prévus à l'article L. 3121-19.",
+    "section": "Durée du travail et heures supplémentaires"
+  },
+  {
+    "id": "L3121-20",
+    "titre": "Durée hebdomadaire maximale de travail",
+    "texte": "Au cours d'une même semaine, la durée maximale hebdomadaire de travail est de quarante-huit heures.",
+    "section": "Durée du travail et heures supplémentaires"
+  },
+  {
+    "id": "L3141-3",
+    "titre": "Acquisition des congés payés",
+    "texte": "Le salarié a droit à un congé de deux jours et demi ouvrables par mois de travail effectif chez le même employeur. La durée totale du congé exigible ne peut excéder trente jours ouvrables.",
+    "section": "Congés payés"
+  },
+  {
+    "id": "L3141-4",
+    "titre": "Périodes assimilées à du travail effectif pour les congés",
+    "texte": "Sont assimilées à un mois de travail effectif pour la détermination de la durée du congé les périodes équivalentes à quatre semaines ou vingt-quatre jours de travail.",
+    "section": "Congés payés"
+  },
+  {
+    "id": "L1221-1",
+    "titre": "Régime juridique général du contrat de travail",
+    "texte": "Le contrat de travail est soumis aux règles du droit commun. Il peut être établi selon les formes que les parties contractantes décident d'adopter.",
+    "section": "Contrat de travail (CDI, CDD)"
+  },
+  {
+    "id": "L1221-2",
+    "titre": "Le CDI, forme normale du contrat de travail",
+    "texte": "Le contrat de travail à durée indéterminée est la forme normale et générale de la relation de travail. Toutefois, le contrat de travail peut comporter un terme fixé avec précision dès sa conclusion ou résultant de la réalisation de l'objet pour lequel il est conclu dans les cas et dans les conditions mentionnés au titre IV relatif au contrat de travail à durée déterminée.",
+    "section": "Contrat de travail (CDI, CDD)"
+  },
+  {
+    "id": "L1234-1",
+    "titre": "Durée du préavis de licenciement",
+    "texte": "Lorsque le licenciement n'est pas motivé par une faute grave, le salarié a droit : 1° S'il justifie chez le même employeur d'une ancienneté de services continus inférieure à six mois, à un préavis dont la durée est déterminée par la loi, la convention ou l'accord collectif de travail ou, à défaut, par les usages pratiqués dans la localité et la profession ; 2° S'il justifie chez le même employeur d'une ancienneté de services continus comprise entre six mois et moins de deux ans, à un préavis d'un mois ; 3° S'il justifie chez le même employeur d'une ancienneté de services continus d'au moins deux ans, à un préavis de deux mois. Toutefois, les dispositions des 2° et 3° ne sont applicables que si la loi, la convention ou l'accord collectif de travail, le contrat de travail ou les usages ne prévoient pas un préavis ou une condition d'ancienneté de services plus favorable pour le salarié.",
+    "section": "Licenciement"
+  },
+  {
+    "id": "L1234-9",
+    "titre": "Indemnité légale de licenciement",
+    "texte": "Le salarié titulaire d'un contrat de travail à durée indéterminée, licencié alors qu'il compte huit mois d'ancienneté ininterrompus au service du même employeur, a droit, sauf en cas de faute grave, à une indemnité de licenciement.",
+    "section": "Licenciement"
+  },
+  {
+    "id": "L1237-11",
+    "titre": "Définition de la rupture conventionnelle",
+    "texte": "L'employeur et le salarié peuvent convenir en commun des conditions de la rupture du contrat de travail qui les lie. La rupture conventionnelle, exclusive du licenciement ou de la démission, ne peut être imposée par l'une ou l'autre des parties. Elle résulte d'une convention signée par les parties au contrat. Elle est soumise aux dispositions de la présente section destinées à garantir la liberté du consentement des parties.",
+    "section": "Rupture conventionnelle"
+  },
+  {
+    "id": "L1237-13",
+    "titre": "Indemnité et délai de rétractation de la rupture conventionnelle",
+    "texte": "La convention de rupture définit les conditions de celle-ci, notamment le montant de l'indemnité spécifique de rupture conventionnelle qui ne peut pas être inférieur à celui de l'indemnité prévue à l'article L. 1234-9. Elle fixe la date de rupture du contrat de travail, qui ne peut intervenir avant le lendemain du jour de l'homologation. A compter de la date de sa signature par les deux parties, chacune d'entre elles dispose d'un délai de quinze jours calendaires pour exercer son droit de rétractation. Ce droit est exercé sous la forme d'une lettre adressée par tout moyen attestant de sa date de réception par l'autre partie.",
+    "section": "Rupture conventionnelle"
+  }
+]
