@@ -1,0 +1,17 @@
+# Secrets - ne jamais committer
+.env
+
+# Environnement virtuel Python
+env/
+venv/
+
+# Base vectorielle (générée localement, pas besoin de la versionner)
+chroma_db/
+
+# Fichiers Python compilés
+__pycache__/
+*.pyc
+
+# Fichiers système
+.DS_Store
+Thumbs.db
