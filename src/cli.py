@@ -42,10 +42,11 @@ def main():
 
         if result["articles_sources"]:
             sources = ", ".join(result["articles_sources"])
-            print(f"(Articles cités : {sources})\n")
+            print(f"(Articles cités : {sources})")
         else:
-            print("(Aucun article spécifique cité dans cette réponse)\n")
+            print("(Aucun article spécifique cité dans cette réponse)")
 
+        print(f"(Score de confiance : {result['score_confiance']})\n")
         print("-" * 60)
 
 

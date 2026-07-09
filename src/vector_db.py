@@ -50,9 +50,13 @@ class VectorDB:
         # Le nom du modèle est stocké DANS la collection elle-même.
         # C'est ce qui permet, au rechargement, de savoir quel modèle utiliser
         # même si la config du jour a changé entre-temps.
+        # "hnsw:space": "cosine" force Chroma à utiliser la distance cosinus
+        # plutôt que la distance euclidienne par défaut : plus facile à
+        # interpréter pour un score de confiance (0 = identique, proche de 1
+        # ou plus = très différent), et cohérent avec normalize_embeddings=True.
         self.collection = self.client.get_or_create_collection(
             name="code_du_travail",
-            metadata={"embedding_model": EMBEDDING_MODEL},
+            metadata={"embedding_model": EMBEDDING_MODEL, "hnsw:space": "cosine"},
         )
 
         ids = [chunk["id"] for chunk in chunks]
@@ -125,6 +129,11 @@ if __name__ == "__main__":
     for question, expected_id in test_cases:
         results = db.retrieve(question, n=3)
         retrieved_ids = results["ids"][0]
+        retrieved_distances = results["distances"][0]
         found = expected_id in retrieved_ids
         status = "OK" if found else "ECHEC"
-        print(f"[{status}] \"{question}\" -> attendu {expected_id}, top-3 = {retrieved_ids}")
+        best_id, best_distance = retrieved_ids[0], retrieved_distances[0]
+        print(
+            f"[{status}] \"{question}\"\n"
+            f"    attendu={expected_id} | meilleur_resultat={best_id} (distance={best_distance:.3f}) | top-3={retrieved_ids}"
+        )

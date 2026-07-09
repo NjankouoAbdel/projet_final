@@ -16,6 +16,13 @@ DISCLAIMER = (
     "Consultez un avocat ou l'inspection du travail pour votre situation personnelle."
 )
 
+# Seuil calibré empiriquement (Jalon 3) : sur nos 5 questions de test, les
+# bons résultats avaient une distance cosinus <= 0.70, et le seul échec
+# (mauvais article remonté en premier) avait une distance de 0.81. On place
+# le seuil entre les deux. Distance cosinus : 0 = identique, plus la valeur
+# grimpe, moins le chunk est proche de la question.
+CONFIDENCE_THRESHOLD = 0.75
+
 
 class RAG:
     def __init__(self):
@@ -53,6 +60,13 @@ class RAG:
         results = self.vector_db.retrieve(question, n=n_chunks)
         chunks_text = self._format_chunks(results)
 
+        # Score de confiance : distance du MEILLEUR chunk retrouvé. Si même
+        # le résultat le plus proche est loin (distance élevée), c'est le
+        # signe que la question sort probablement du corpus, ou que le
+        # vocabulaire employé est trop différent de celui des articles.
+        best_distance = results["distances"][0][0]
+        low_confidence = best_distance > CONFIDENCE_THRESHOLD
+
         # 2. Prompt à trous : on lit le fichier à chaque question (permet de
         # modifier le prompt sans toucher au code), et on remplace le marqueur.
         system_prompt_template = self.read_file(PROMPT_PATH)
@@ -75,7 +89,18 @@ class RAG:
         if DISCLAIMER not in answer:
             answer = answer.strip() + "\n\n" + DISCLAIMER
 
-        # 5. On ne garde, comme "sources" affichées, que les articles que le
+        # 5. Si la confiance est faible, on préfixe la réponse d'un avertissement
+        # visible, plutôt que de laisser l'utilisateur croire que la réponse
+        # est aussi fiable qu'une réponse bien ancrée dans le corpus.
+        if low_confidence:
+            warning = (
+                "⚠️ Confiance faible : les articles les plus proches trouvés "
+                "dans ma base ne correspondent peut-être pas bien à votre "
+                "question. La réponse ci-dessous est à prendre avec précaution.\n\n"
+            )
+            answer = warning + answer
+
+        # 6. On ne garde, comme "sources" affichées, que les articles que le
         # LLM a réellement cités dans le texte de sa réponse — pas tous ceux
         # qu'on lui a envoyés (certains étaient hors sujet et il les a ignorés
         # à raison, cf. règle 2 du prompt). On vérifie la présence de chaque
@@ -88,6 +113,8 @@ class RAG:
         return {
             "reponse": answer,
             "articles_sources": cited_ids,
+            "score_confiance": round(1 - best_distance, 2),
+            "confiance_faible": low_confidence,
         }
 
 
