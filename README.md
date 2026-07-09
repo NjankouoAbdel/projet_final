@@ -100,17 +100,6 @@ Le prompt système (règle 7) distingue explicitement les questions factuelles c
 
 Testé avec succès sur des questions clairement hors corpus (score de confiance observé : 0.01 à 0.24), le système reste honnête plutôt que d'inventer une réponse.
 
-## Compte-rendu — difficultés rencontrées et décisions de conception
+## Compte-rendu
 
-**Bug silencieux ChromaDB** : la vérification initiale "la base existe si le dossier `chroma_db/` existe et n'est pas vide" s'est révélée fausse — `chromadb.PersistentClient` crée déjà des fichiers dans ce dossier dès son instanciation, avant toute création de collection. Le code tentait donc systématiquement de recharger une collection qui n'existait pas encore, provoquant un plantage (`metadata` = `None`). Corrigé en interrogeant directement ChromaDB via `client.list_collections()` plutôt que le système de fichiers.
-
-**Échec de retrieval sur la rupture conventionnelle** : détecté au Jalon 3 (question "Comment fonctionne la rupture conventionnelle ?" ne remontait pas l'article attendu en top-3). Cause probable : seulement 2 articles du corpus couvrent ce thème, et l'écart de registre entre une question familière et le style juridique formel des articles. Ce constat a directement motivé le choix de l'amélioration du Jalon 6 (score de confiance), qui permet au moins de signaler ce type de cas à l'utilisateur plutôt que de le laisser sans indication.
-
-**Environnement Windows** : plusieurs frictions pratiques (commande `python` non reconnue nécessitant `py`, fichiers téléchargés atterrissant dans `Downloads` plutôt que dans le dossier projet, authentification `gh auth login` nécessitant plusieurs tentatives). Rien de spécifique au projet RAG lui-même, mais un rappel que l'environnement de développement mérite d'être vérifié tôt.
-
-## Ce qui serait fait avec plus de temps
-
-- Élargir le corpus (actuellement 13 articles) pour couvrir plus densément chaque thème, en particulier la rupture conventionnelle et le contrat de travail
-- Une vérification de citation plus robuste que la recherche de sous-chaîne (normaliser les variantes d'écriture d'un numéro d'article)
-- Un mécanisme de suivi de fraîcheur du corpus (date de dernière vérification par article)
-- Explorer la reformulation de question (Jalon 6, option non retenue) pour rapprocher le vocabulaire familier des utilisateurs du registre juridique des articles
+Voir [COMPTE_RENDU.md](./COMPTE_RENDU.md) pour les difficultés rencontrées, les décisions de conception, et ce qui serait fait avec plus de temps.
